@@ -1,0 +1,7 @@
+@use '/node_modules/open-props-scss/index.scss' as op;
+
+.main {
+  background-color: op.$gray-1;
+  height: 100px;
+  width: 100px;
+}
