@@ -30,6 +30,10 @@ const WordCloud: React.FC<WordCloudProps> = ({
   const [words, setWords] = useState<WordData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
+  const hasSubmittedCookie = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('HasAlreadySubmitted='))
+
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
@@ -107,10 +111,6 @@ const WordCloud: React.FC<WordCloudProps> = ({
   })
 
   const fontSizeSetter = (datum: WordData) => fontScale(datum.value)
-
-  const hasSubmittedCookie = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith('HasAlreadySubmitted='))
 
   if (!show && !hasSubmittedCookie) return <></>
   return (
