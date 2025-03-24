@@ -117,7 +117,6 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 200, maxWor
             words={words}
             width={width}
             height={height}
-            font={'Impact'}
             padding={2}
             rotate={0}
           >
