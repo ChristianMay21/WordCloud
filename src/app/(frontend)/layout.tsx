@@ -19,7 +19,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
-            backgroundColor: 'oklch(0.984 0.003 247.858)',
+            backgroundColor: 'oklch(0.929 0.013 255.508)',
           }}
         >
           {children}

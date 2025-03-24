@@ -22,6 +22,7 @@ export default function CloudPage() {
         marginBottom: 'auto',
       }}
     >
+      <h1>What others said:</h1>
       <WordCloud key={refreshKey} />
       <Submit onSubmit={refreshWordCloud} />
     </div>
