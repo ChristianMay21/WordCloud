@@ -92,7 +92,7 @@ const Submit: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
             type="text"
             value={submission}
             onChange={(e) => setSubmission(e.target.value)}
-            placeholder="Enter your word here..."
+            placeholder="Enter your word"
             disabled={isSubmitting}
             className="submission-textarea"
           />
