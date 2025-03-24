@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-const Submit: React.FC = () => {
+const Submit: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
   const [submission, setSubmission] = useState('')
   const [status, setStatus] = useState<{
     type: 'success' | 'error' | 'idle'
@@ -54,6 +54,7 @@ const Submit: React.FC = () => {
         // Set cookie to prevent duplicate submissions
         document.cookie = 'HasAlreadySubmitted=true; path=/'
         setSubmission('') // Clear the input field
+        onSubmit()
       } else {
         setStatus({
           type: 'error',
