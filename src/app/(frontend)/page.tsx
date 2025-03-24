@@ -1,24 +1,49 @@
-import { headers as getHeaders } from 'next/headers.js'
+'use client'
+
+import React, { useState, useEffect } from 'react'
+import WordCloud from '@/app/components/WordCloud'
+import Submit from '@/app/components/Submit'
 import Image from 'next/image'
-import { getPayload } from 'payload'
-import React from 'react'
-import { fileURLToPath } from 'url'
+export default function CloudPage() {
+  // Add a state variable that will change to trigger re-renders
+  const [refreshKey, setRefreshKey] = useState(0)
+  const [showWordCloud, setShowWordCloud] = useState(false)
 
-import config from '@/payload.config'
-import './styles.scss'
-import Main from '../components/Main'
-export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  useEffect(() => {
+    // Check if user has already submitted
+    const hasSubmittedCookie = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('HasAlreadySubmitted='))
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+    if (hasSubmittedCookie) {
+      setShowWordCloud(true)
+    }
+  }, [])
 
-  //fetch inital data here
+  // Function to force re-render of WordCloud
+  const refreshWordCloud = () => {
+    // Incrementing the state will cause a re-render
+    setRefreshKey((prevKey: number) => prevKey + 1)
+    setShowWordCloud(true)
+  }
+
   return (
-    <div>
-      <Main />
+    <div
+      style={{
+        backgroundColor: '',
+        fontFamily: 'sans-serif',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+      }}
+    >
+      <Image
+        src="/art.webp"
+        width={300}
+        height={395}
+        alt="A young Black woman with shoulder-length braids wearing a medical mask. She stares straight at you with a neutral expression."
+      />
+      {showWordCloud && <WordCloud key={refreshKey} />}
+      <Submit onSubmit={refreshWordCloud} />
     </div>
   )
 }

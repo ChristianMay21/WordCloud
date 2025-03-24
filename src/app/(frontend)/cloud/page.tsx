@@ -34,6 +34,9 @@ export default function CloudPage() {
         fontFamily: 'sans-serif',
         marginTop: 'auto',
         marginBottom: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       <Image
@@ -41,9 +44,10 @@ export default function CloudPage() {
         width={300}
         height={395}
         alt="A young Black woman with shoulder-length braids wearing a medical mask. She stares straight at you with a neutral expression."
+        style={{ borderRadius: '16px', marginBottom: '16px' }}
       />
       {showWordCloud && <WordCloud key={refreshKey} />}
-      <Submit onSubmit={refreshWordCloud} />
+      {!showWordCloud && <Submit onSubmit={refreshWordCloud} />}
     </div>
   )
 }
