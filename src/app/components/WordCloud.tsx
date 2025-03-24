@@ -85,15 +85,6 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 200, maxWor
     fetchSubmissions()
   }, [maxWords])
 
-  const fontScale = scaleLog({
-    domain: [Math.min(...words.map((w) => w.value)), Math.max(...words.map((w) => w.value))].map(
-      (d) => Math.max(1, d),
-    ),
-    range: [10, 60],
-  })
-
-  const fontSizeSetter = (datum: WordData) => fontScale(datum.value)
-
   return (
     <>
       <h1
@@ -126,7 +117,6 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 200, maxWor
             words={words}
             width={width}
             height={height}
-            fontSize={fontSizeSetter}
             font={'Impact'}
             padding={2}
             spiral="rectangular"
