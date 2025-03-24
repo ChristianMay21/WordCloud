@@ -20,7 +20,7 @@ interface WordCloudProps {
 
 const colors = ['#2f0d68', '#0f172b', '#432004']
 
-const WordCloud: React.FC<WordCloudProps> = ({ width = 600, height = 300, maxWords = 100 }) => {
+const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 250, maxWords = 100 }) => {
   const [words, setWords] = useState<WordData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
