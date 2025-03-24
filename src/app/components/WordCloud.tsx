@@ -108,7 +108,7 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 250, maxWor
       style={{
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: 'oklch(0.929 0.013 255.508)',
+        backgroundColor: 'oklch(0.93 0.034 272.788)',
         borderRadius: '1rem',
         boxShadow: '0 3px 4px rgba(0, 0, 0, 0.1)',
         border: '1px solid oklch(0.869 0.022 252.894)',
