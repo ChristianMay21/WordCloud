@@ -2,8 +2,8 @@ import React from 'react'
 import './styles.scss'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Word Cloud Submission Form',
+  title: 'WWord Cloud',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -19,7 +19,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
-            backgroundColor: 'oklch(0.984 0.003 247.858)'
+            backgroundColor: 'oklch(0.984 0.003 247.858)',
           }}
         >
           {children}
