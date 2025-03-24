@@ -7,13 +7,11 @@ import Submit from '@/app/components/Submit'
 export default function CloudPage() {
   // Add a state variable that will change to trigger re-renders
   const [refreshKey, setRefreshKey] = useState(0)
-  const [showWordCloud, setShowWordCloud] = useState(false)
 
   // Function to force re-render of WordCloud
   const refreshWordCloud = () => {
     // Incrementing the state will cause a re-render
     setRefreshKey((prevKey: number) => prevKey + 1)
-    setShowWordCloud(true)
   }
   return (
     <div
@@ -24,7 +22,7 @@ export default function CloudPage() {
         marginBottom: 'auto',
       }}
     >
-      <WordCloud key={refreshKey} show={showWordCloud} />
+      <WordCloud key={refreshKey} />
       <Submit onSubmit={refreshWordCloud} />
     </div>
   )

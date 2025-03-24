@@ -16,23 +16,13 @@ interface WordCloudProps {
   height?: number
   maxWords?: number
   submissions?: WordCloudSubmission[]
-  show?: boolean
 }
 
 const colors = ['#2f0d68', '#0f172b', '#432004']
 
-const WordCloud: React.FC<WordCloudProps> = ({
-  width = 300,
-  height = 250,
-  maxWords = 100,
-  show = false,
-}) => {
+const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 250, maxWords = 100 }) => {
   const [words, setWords] = useState<WordData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-
-  const hasSubmittedCookie = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith('HasAlreadySubmitted='))
 
   useEffect(() => {
     const fetchSubmissions = async () => {
@@ -112,7 +102,6 @@ const WordCloud: React.FC<WordCloudProps> = ({
 
   const fontSizeSetter = (datum: WordData) => fontScale(datum.value)
 
-  if (!show && !hasSubmittedCookie) return <></>
   return (
     <>
       <h1
