@@ -5,9 +5,5 @@ import config from '@/payload.config'
 import type { WordCloudSubmission } from '@/payload-types'
 import Submit from '@/app/components/Submit'
 export default function CloudPage() {
-  return (
-    <div style={{ fontFamily: 'sans-serif', marginTop: 'auto', marginBottom: 'auto' }}>
-      <Submit onSubmit={() => {}} />
-    </div>
-  )
+  return <div style={{ fontFamily: 'sans-serif', marginTop: 'auto', marginBottom: 'auto' }}></div>
 }
