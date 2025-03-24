@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import WordCloud from '@/app/components/WordCloud'
 import Submit from '@/app/components/Submit'
-
+import Image from 'next/image'
 export default function CloudPage() {
   // Add a state variable that will change to trigger re-renders
   const [refreshKey, setRefreshKey] = useState(0)
@@ -36,10 +36,11 @@ export default function CloudPage() {
         marginBottom: 'auto',
       }}
     >
-      <img
+      <Image
         src="/art.webp"
+        width={300}
+        height={395}
         alt="A young Black woman with shoulder-length braids wearing a medical mask. She stares straight at you with a neutral expression."
-        style={{ width: '300px' }}
       />
       {showWordCloud && <WordCloud key={refreshKey} />}
       <Submit onSubmit={refreshWordCloud} />
