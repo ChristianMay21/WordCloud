@@ -89,7 +89,7 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 200, maxWor
     domain: [Math.min(...words.map((w) => w.value)), Math.max(...words.map((w) => w.value))].map(
       (d) => Math.max(1, d),
     ),
-    range: [12, 32],
+    range: [14, 32],
   })
 
   const fontSizeSetter = (datum: WordData) => fontScale(datum.value)
