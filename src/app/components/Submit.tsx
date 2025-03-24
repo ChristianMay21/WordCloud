@@ -54,6 +54,7 @@ const Submit: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
         // Set cookie to prevent duplicate submissions
         document.cookie = 'HasAlreadySubmitted=true; path=/'
         setSubmission('') // Clear the input field
+        onSubmit()
       } else {
         setStatus({
           type: 'error',
