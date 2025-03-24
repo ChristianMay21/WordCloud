@@ -16,11 +16,17 @@ interface WordCloudProps {
   height?: number
   maxWords?: number
   submissions?: WordCloudSubmission[]
+  show?: boolean
 }
 
 const colors = ['#2f0d68', '#0f172b', '#432004']
 
-const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 250, maxWords = 100 }) => {
+const WordCloud: React.FC<WordCloudProps> = ({
+  width = 300,
+  height = 250,
+  maxWords = 100,
+  show = false,
+}) => {
   const [words, setWords] = useState<WordData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -102,50 +108,67 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 250, maxWor
 
   const fontSizeSetter = (datum: WordData) => fontScale(datum.value)
 
+  const hasSubmittedCookie = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('HasAlreadySubmitted='))
+
+  if (!show && !hasSubmittedCookie) return <></>
   return (
-    <div
-      className="word-cloud-container"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: 'oklch(0.93 0.034 272.788)',
-        borderRadius: '1rem',
-        boxShadow: '0 3px 4px rgba(0, 0, 0, 0.1)',
-        border: '1px solid oklch(0.869 0.022 252.894)',
-      }}
-    >
-      {loading ? (
-        <div></div>
-      ) : words.length === 0 ? (
-        <div>No data available for word cloud</div>
-      ) : (
-        <Wordcloud
-          words={words}
-          width={width}
-          height={height}
-          fontSize={fontSizeSetter}
-          font={'Impact'}
-          padding={2}
-          spiral="rectangular"
-          rotate={0}
-        >
-          {(cloudWords) =>
-            cloudWords.map((w, i) => (
-              <Text
-                key={`${w.text}-${i}`}
-                fill={colors[i % colors.length]}
-                textAnchor={'middle'}
-                transform={`translate(${w.x}, ${w.y}) rotate(${w.rotate})`}
-                fontSize={w.size}
-                fontFamily={w.font}
-              >
-                {w.text}
-              </Text>
-            ))
-          }
-        </Wordcloud>
-      )}
-    </div>
+    <>
+      <h1
+        style={{
+          textAlign: 'center',
+          color: 'oklch(0.257 0.09 281.288)',
+          marginBottom: '16px',
+          fontSize: '28px',
+        }}
+      >
+        What others said:
+      </h1>
+      <div
+        className="word-cloud-container"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: 'oklch(0.97 0.001 106.424)',
+          borderRadius: '1rem',
+          boxShadow: '0 3px 4px rgba(0, 0, 0, 0.1)',
+          border: '1px solid oklch(0.869 0.022 252.894)',
+        }}
+      >
+        {loading ? (
+          <div></div>
+        ) : words.length === 0 ? (
+          <div>No data available for word cloud</div>
+        ) : (
+          <Wordcloud
+            words={words}
+            width={width}
+            height={height}
+            fontSize={fontSizeSetter}
+            font={'Impact'}
+            padding={2}
+            spiral="rectangular"
+            rotate={0}
+          >
+            {(cloudWords) =>
+              cloudWords.map((w, i) => (
+                <Text
+                  key={`${w.text}-${i}`}
+                  fill={colors[i % colors.length]}
+                  textAnchor={'middle'}
+                  transform={`translate(${w.x}, ${w.y}) rotate(${w.rotate})`}
+                  fontSize={w.size}
+                  fontFamily={w.font}
+                >
+                  {w.text}
+                </Text>
+              ))
+            }
+          </Wordcloud>
+        )}
+      </div>
+    </>
   )
 }
 
