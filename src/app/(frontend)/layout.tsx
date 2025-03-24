@@ -3,7 +3,7 @@ import './styles.scss'
 
 export const metadata = {
   description: 'Word Cloud Submission Form',
-  title: 'WWord Cloud',
+  title: 'Word Cloud',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
