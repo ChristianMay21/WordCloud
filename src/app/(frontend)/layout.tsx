@@ -11,7 +11,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" style={{ height: '100%' }}>
-      <body style={{ height: '100%' }}>
+      <body style={{ height: '100%', marginBlock: '0' }}>
         <main
           style={{
             display: 'flex',
