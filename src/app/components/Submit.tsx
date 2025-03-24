@@ -73,7 +73,7 @@ const Submit: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
   }
 
   return (
-    <div className="submission-container">
+    <div className="submission-container" style={{ backgroundColor: '#f1f5f9' }}>
       <p>
         In one word, what would you title this piece? Or, feel free to submit a one word response to
         this piece.
