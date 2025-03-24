@@ -15,7 +15,6 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@libsql/client": "^0.15.1",
     "@payloadcms/db-vercel-postgres": "3.30.0",
     "@payloadcms/next": "3.30.0",
     "@payloadcms/payload-cloud": "3.30.0",
