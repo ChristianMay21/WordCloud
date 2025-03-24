@@ -38,7 +38,7 @@ export default function CloudPage() {
     >
       <Image
         src="/art.webp"
-        width={300}
+        width={250}
         height={395}
         alt="A young Black woman with shoulder-length braids wearing a medical mask. She stares straight at you with a neutral expression."
       />

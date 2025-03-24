@@ -83,14 +83,6 @@ const WordCloud: React.FC<WordCloudProps> = ({ width = 300, height = 200, maxWor
 
     // Initial fetch
     fetchSubmissions()
-
-    // Set up interval to fetch every 15 seconds
-    const intervalId = setInterval(() => {
-      fetchSubmissions()
-    }, 60000)
-
-    // Clean up interval on component unmount
-    return () => clearInterval(intervalId)
   }, [maxWords])
 
   const fontScale = scaleLog({
