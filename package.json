@@ -15,10 +15,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@payloadcms/db-vercel-postgres": "3.30.0",
-    "@payloadcms/next": "3.30.0",
-    "@payloadcms/payload-cloud": "3.30.0",
-    "@payloadcms/richtext-lexical": "3.30.0",
+    "@payloadcms/db-vercel-postgres": "latest",
+    "@payloadcms/next": "latest",
+    "@payloadcms/payload-cloud": "latest",
+    "@payloadcms/richtext-lexical": "latest",
     "@visx/group": "^3.12.0",
     "@visx/mock-data": "^3.12.0",
     "@visx/scale": "^3.12.0",
@@ -27,10 +27,9 @@
     "@visx/wordcloud": "^3.12.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
-    "libsql": "^0.5.3",
     "next": "15.1.5",
     "open-props-scss": "^0.8.0",
-    "payload": "3.30.0",
+    "payload": "latest",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6"
