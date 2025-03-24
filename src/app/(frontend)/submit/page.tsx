@@ -7,7 +7,7 @@ import Submit from '@/app/components/Submit'
 export default function CloudPage() {
   return (
     <div style={{ fontFamily: 'sans-serif', marginTop: 'auto', marginBottom: 'auto' }}>
-      <Submit />
+      <Submit onSubmit={() => {}} />
     </div>
   )
 }
