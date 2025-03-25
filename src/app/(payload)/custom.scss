@@ -1,0 +1,10 @@
+/* In your global CSS file */
+@font-face {
+  font-family: 'Impact';
+  src:
+    url('/impact.woff2') format('woff2'),
+    url('/impact.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
